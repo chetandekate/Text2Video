@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static.css') }}">
+    <style>
+        /* Internal styles for convenience; you can move them to static.css */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 7px;
+            max-width: 600px;
+            margin: 50px auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Generate Video from Text</h2>
+        <form action="/" method="post">
+            <div class="input-group">
+                <label for="topic">Topic:</label>
+                <input type="text" id="topic" name="topic" placeholder="Enter video topic" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="text">Text:</label>
+                <textarea id="text" name="text" rows="5" placeholder="Enter your text here" required></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="lang">Language:</label>
+                <select id="lang" name="lang">
+                {% for lang in languages %}
+                    <option value="{{ lang.code }}" {% if selected_lang == lang.code %}selected{% endif %}>{{ lang.name }}</option>
+                {% endfor %}
+                </select>
+            </div>
+
+            <div class="input-group">
+                <input type="submit" value="Generate Video">
+            </div>
+        </form>
+        
+        {% if video_path %}
+        <div style="margin-top: 30px;">
+            <h3 style="text-align: center;">Generated Video:</h3>
+            <video width="100%" controls>
+                <source src="{{ video_path }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
