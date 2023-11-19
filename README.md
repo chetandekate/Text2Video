@@ -1,6 +1,6 @@
-# Flask Text-to-Video Application
+# Flask Text-to-Video Converter: Transform Words into Visual Stories
 
-This Flask application provides a simple interface for users to input text and generate a corresponding video. It utilizes `pyttsx3` to convert the text into audio and `moviepy` to create a video by combining the audio with an image.
+Create immersive videos from text with our #Flask Text-to-Video Converter. Leveraging #pyttsx3 for audio synthesis and #moviepy for video creation, it's perfect for transforming narratives into visual content.
 
 ## Table of Contents
 - [Features](#features)
@@ -15,9 +15,9 @@ This Flask application provides a simple interface for users to input text and g
 - [Contact Information](#contact-information)
 
 ## Features
-- Convert user-input text (up to 1000 characters) into audio.
-- Generate a video combining the text's audio with a default image.
-- User-friendly interface with immediate video playback.
+-Text-to-audio conversion with up to 1000 characters.
+- Automatic video production combining audio and images.
+- User-friendly interface for immediate playback.
 
 ## Prerequisites
 - Python 3.6 or later.
@@ -74,3 +74,5 @@ Contributions, issues, and feature requests are welcome. Please open an issue fi
 
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+#Python #WebDevelopment #OpenSource #TechInnovation
